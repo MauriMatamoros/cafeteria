@@ -1,0 +1,71 @@
+users:
+	clients
+	employees
+	owners
+	admin
+
+views - actions:
+
+	login
+	signup
+	forgot password
+	homepage/ landing page	
+
+	clients:
+		profile	- CRUD
+		menus - R
+		cart - CRD
+		orders - CRD
+	
+	employees:
+		orders - CRUD
+	owners:
+		analytics - R
+		menu - CRUD
+	admin:
+		anaylytics - R
+		users - CRUD
+
+future features:
+	sms/email notification
+	delivery service
+	calendar integration for deals
+
+schemas:
+	plates:
+		name
+		price
+		image-url
+		discount
+		preparation-time
+		options-list
+	options:
+		name
+		price
+		image-url
+	orders:
+		plates
+		createdAt
+		createdBy
+		additional-notes
+		done
+	clients:
+		name
+		university-id
+		password-hash
+		email
+		age
+		gender
+	employees:
+		name
+		worksFor:
+	owner:
+		name
+		workers
+		image-url
+		
+analytics:
+	most sold dish
+	amount of dishes sold
+	profits
+	sales by time
