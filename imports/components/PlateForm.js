@@ -1,16 +1,15 @@
 import React from 'react'
-import { Meteor } from 'meteor/meteor'
-import { history } from '../routes/routes'
 
 export default class PlateForm extends React.Component {
     constructor(props) {
         super(props)
+        const plate = props.plate
         this.state = {
-            name: '',
-            price: '',
-            imageUrl: '',
-            discount: '',
-            preparationTime: '',
+            name: plate ? plate.name : '',
+            price: plate ? plate.price : '',
+            imageUrl: plate ? plate.imageUrl : '',
+            discount: plate ? plate.discount : '',
+            preparationTime: plate ? plate.preparationTime : '',
             error: ''
         }
     }
@@ -48,8 +47,14 @@ export default class PlateForm extends React.Component {
 
     onSubmit = (e) => {
         e.preventDefault()
-        Meteor.call('plates.add', { ...this.state }, (err) => console.log(err))
-        history.push('/plateList')
+        if (this.props.plate) {
+            this.props.onSubmit({ 
+                _id: this.props.plate._id,
+                ...this.state 
+            });
+        } else {
+            this.props.onSubmit({ ...this.state });
+        }
     }
     
     render() {
@@ -102,7 +107,7 @@ export default class PlateForm extends React.Component {
                             onChange={this.onPreparationTimeChange}
                         />
                     </label>
-                    <button>Add</button>
+                    <button>{this.props.plate ? 'Edit' : 'Add'}</button>
                 </form>
             </div>
         )

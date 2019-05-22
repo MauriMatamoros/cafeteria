@@ -5,7 +5,7 @@ import { Meteor } from 'meteor/meteor'
 import { Plates } from '../api/plates'
 import PlateItem from './PlateItem'
 
-const PlateList = ({ plates }) => (
+export const PlateList = ({ plates }) => (
     <div>
         {plates.map((plate) => <PlateItem key={plate._id} {...plate} />)}
     </div>

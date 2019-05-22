@@ -6,7 +6,7 @@ export default (props) => (
         <Link to="/">Home</Link>
         <Link to="/login">Login</Link>
         <Link to="/signup">Signup</Link>
-        <Link to="/plate">PlateForm</Link>
+        <Link to="/plate">AddPlate</Link>
         <Link to="/plateList">PlateList</Link>
         <Link to="/options">OptionsForm</Link>
     </div>
